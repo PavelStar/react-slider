@@ -20,6 +20,11 @@ li {
 	margin: 0;
 }
 
+html,
+body {
+	overflow-x: hidden;
+}
+
 body {
 	scroll-behavior: smooth;
 	text-rendering: optimizeSpeed;

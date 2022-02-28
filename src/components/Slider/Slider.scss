@@ -1,0 +1,20 @@
+.slider {
+	width: 100%;
+
+	&__wrapper {
+		position: relative;
+		overflow: hidden;
+		width: 100vw;
+		height: 50vh;
+	}
+
+	&__list {
+		position: absolute;
+		display: flex;
+	}
+
+	&__item {
+		width: 100vw;
+		left: 500px;
+	}
+}
