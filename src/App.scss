@@ -1,3 +1,45 @@
+@font-face {
+	font-family: "Gilroy";
+	font-style: normal;
+	font-weight: normal;
+	src: url("./fonts/Gilroy-Regular.woff2") format("woff2"), url("./fonts/Gilroy-Regular.woff") format("woff");
+}
+
+@font-face {
+	font-family: "Gilroy";
+	font-style: normal;
+	font-weight: 300;
+	src: url("./fonts/Gilroy-Light.woff2") format("woff2"), url("./fonts/Gilroy-Light.woff") format("woff");
+}
+
+@font-face {
+	font-family: "Gilroy";
+	font-style: normal;
+	font-weight: 800;
+	src: url("./fonts/Gilroy-Extrabold.woff2") format("woff2"), url("./fonts/Gilroy-Extrabold.woff") format("woff");
+}
+
+@font-face {
+	font-family: "Din Pro";
+	font-style: normal;
+	font-weight: 400;
+	src: url("./fonts/din_pro.woff2") format("woff2"), url("./fonts/din_pro.woff") format("woff");
+}
+
+@font-face {
+	font-family: "Din Pro";
+	font-style: normal;
+	font-weight: 700;
+	src: url("./fonts/din_pro_bold.woff2") format("woff2"), url("./fonts/din_pro_bold.woff") format("woff");
+}
+
+@font-face {
+	font-family: "Circe";
+	font-style: normal;
+	font-weight: 400;
+	src: url("./fonts/circe.woff2") format("woff2"), url("./fonts/circe.woff") format("woff");
+}
+
 *,
 *::before,
 *::after {
@@ -23,12 +65,17 @@ li {
 html,
 body {
 	overflow-x: hidden;
+	position: relative;
 }
 
 body {
+	font-family: "Din Pro";
+	font-size: 18px;
+	font-weight: normal;
 	scroll-behavior: smooth;
 	text-rendering: optimizeSpeed;
 	line-height: 1.5;
+	color: #242424;
 }
 
 img {
@@ -40,4 +87,8 @@ input,
 button,
 select {
 	font: inherit;
+}
+
+button {
+	border: none;
 }

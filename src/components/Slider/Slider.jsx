@@ -22,11 +22,20 @@ const Slider = () => {
 	let slidesCount = null;
 
 	const setTouchStart = (e) => {
-		startPosition = e.touches[0].clientX;
+		if (e.type === "mousedown") {
+			startPosition = e.clientX;
+		} else {
+			startPosition = e.touches[0].clientX;
+		}
 	};
 
 	const setTouchEnd = (e) => {
-		endPosition = e.touches[0].clientX;
+		if (e.type === "mouseup") {
+			endPosition = e.clientX;
+			switchSlides();
+		} else {
+			endPosition = e.touches[0].clientX;
+		}
 	};
 
 	const switchSlides = () => {
@@ -50,14 +59,23 @@ const Slider = () => {
 					onTouchStart={(e) => setTouchStart(e)}
 					onTouchMove={(e) => setTouchEnd(e)}
 					onTouchEnd={switchSlides}
+					onMouseUp={(e) => setTouchEnd(e)}
+					onMouseDown={(e) => setTouchStart(e)}
 					style={{
 						transform: `translateX(${linePosition}px)`,
 						transitionDuration: "1s",
 					}}
 				>
 					<li className="slider__item">
-						<h1>Привет, это не коммерческое задание</h1>
-						<ButtonLearnMore />
+						<div className="slider__intro-block intro-block">
+							<h1 className="intro-block__title page-title">
+								<span className="page-title__intro">Привет,</span>
+								это <span className="page-title__bold">не</span> коммерческое
+								<div className="page-title__last-row">
+									задание <ButtonLearnMore />
+								</div>
+							</h1>
+						</div>
 					</li>
 					<li className="slider__item">
 						<h2>Текст сообщения</h2>

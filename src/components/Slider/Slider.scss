@@ -5,16 +5,47 @@
 		position: relative;
 		overflow: hidden;
 		width: 100vw;
-		height: 50vh;
+		height: 100vh;
+		background-color: red;
 	}
 
 	&__list {
 		position: absolute;
 		display: flex;
+		background-image: url("./../../images/main-bg.png");
+		background-size: cover;
+		background-repeat: no-repeat;
+		height: 100%;
 	}
 
 	&__item {
+		padding: 20px 60px;
+		padding-top: 130px;
 		width: 100vw;
-		left: 500px;
+	}
+}
+
+.page-title {
+	font-family: "Gilroy";
+	font-size: 110px;
+	font-weight: 300;
+	line-height: 110%;
+	text-transform: uppercase;
+
+	&__intro {
+		display: block;
+		font-size: 20px;
+		line-height: 110%;
+	}
+
+	&__bold {
+		font-weight: 700;
+	}
+
+	&__last-row {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 30px;
 	}
 }
