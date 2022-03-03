@@ -1,0 +1,87 @@
+.message-slide {
+	&__title {
+		max-width: 200px;
+		margin-bottom: 40px;
+	}
+
+	&__text-block-wrapper {
+		display: flex;
+		gap: 40px;
+	}
+
+	&__text-wrapper {
+		position: relative;
+		overflow-y: hidden;
+		overflow-y: scroll;
+		width: 600px;
+		height: 400px;
+		background-color: white;
+		border-radius: 40px;
+		box-shadow: rgba(157, 185, 198, 0.2) 5px 5px 10px 10px;
+		z-index: 11;
+		border-top: 20px solid white;
+		border-bottom: 20px solid white;
+
+		&::-webkit-scrollbar {
+			appearance: none;
+			background-color: transparent;
+		}
+	}
+
+	&__scroll-wrapper {
+		position: relative;
+		display: flex;
+		width: 20px;
+
+		&::after {
+			position: absolute;
+			content: "";
+			width: 6px;
+			height: 70%;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			border-radius: 20px;
+			background-color: black;
+			z-index: 9;
+			pointer-events: none;
+		}
+	}
+
+	&__custom-scroll {
+		position: relative;
+		-webkit-appearance: none;
+		-webkit-appearance: slider-vertical;
+		background-color: green;
+		transform: rotate(180deg);
+		opacity: 0;
+
+		&::-webkit-slider-runnable-track {
+			width: 100px;
+		}
+	}
+
+	&__custom-thumb {
+		position: absolute;
+		width: 20px;
+		height: 110px;
+		margin-top: 60px;
+		left: 50%;
+		transform: translateX(-50%);
+		top: 0;
+		border-radius: 20px;
+		background-color: rgb(207, 87, 141);
+		box-shadow: inset 4px 4px 5px rgba(0, 0, 0, 0.5), inset -4px -4px 5px rgba(255, 255, 255, 0.5);
+		cursor: pointer;
+		pointer-events: none;
+		z-index: 10;
+	}
+
+	&__text {
+		padding: 0px 30px 5px 30px;
+
+		span {
+			font-weight: 700;
+		}
+	}
+}
