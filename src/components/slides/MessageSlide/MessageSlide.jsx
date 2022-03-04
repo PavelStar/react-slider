@@ -14,24 +14,20 @@ const MessageSlide = () => {
 	useEffect(() => {
 		setSliderMaxValue(textWrapRef.current.scrollHeight - textWrapRef.current.clientHeight);
 		setCustomThumbPos((textWrapRef.current.clientHeight / sliderMaxValue / 2) * currentValue);
-		console.log((textWrapRef.current.clientHeight / sliderMaxValue) * currentValue);
-		// setCustomThumbPos(textWrapRef.current.clientHeight)
 	}, [sliderMaxValue, currentValue]);
 
 	const onHandleScroll = (e) => {
 		setCurrentValue(e.currentTarget.value);
 		textWrapRef.current.scrollTo(0, e.currentTarget.value);
-		// console.log(e.currentTarget.value);
 	};
 
 	const onMouseScroll = (e) => {
 		setCurrentValue(e.currentTarget.scrollTop);
-		// console.log(e.currentTarget.scrollTop);
 	};
 
 	return (
 		<div className="message-slide">
-			<h2 className="message-slide__title slider__slide-title">Текст сообщения</h2>
+			<h2 className="message-slide__title title-intro">Текст сообщения</h2>
 			<div className="message-slide__text-block-wrapper">
 				<div className="message-slide__scroll-wrapper">
 					<input
@@ -39,18 +35,13 @@ const MessageSlide = () => {
 						type="range"
 						orient="vertical"
 						onChange={(e) => onHandleScroll(e)}
-						// onMouseDown={() => console.log("mouseDown")}
 						min={0}
 						max={sliderMaxValue}
 						value={currentValue}
 						ref={customScrollRef}
 					/>
 					<div className="message-slide__slide-line"></div>
-					<button
-						// onClick={() => customScrollRef.current.click()}
-						className="message-slide__custom-thumb"
-						style={{ top: `${customThumbPos}px` }}
-					></button>
+					<button className="message-slide__custom-thumb" style={{ top: `${customThumbPos}px` }}></button>
 				</div>
 
 				<div className="message-slide__text-wrapper" onScroll={(e) => onMouseScroll(e)} ref={textWrapRef}>

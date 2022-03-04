@@ -1,0 +1,48 @@
+.slider-controls {
+	&__buttons-wrapper {
+		display: flex;
+		gap: 10px;
+	}
+
+	&__arrow-button {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-color: transparent;
+
+		&--left {
+			transform: rotate(-180deg);
+		}
+
+		svg {
+			height: 20px;
+		}
+	}
+
+	&__dots-list {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-wrap: wrap;
+		gap: 10px;
+	}
+
+	&__dot-item {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	&__dot-button {
+		width: 12px;
+		height: 12px;
+		border: 2px solid black;
+		border-radius: 50%;
+		background-color: transparent;
+
+		&--active {
+			background-color: #fc6da9;
+			border: none;
+		}
+	}
+}

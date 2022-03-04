@@ -19,6 +19,7 @@
 	}
 
 	&__item {
+		position: relative;
 		padding: 20px 60px;
 		padding-top: 130px;
 		width: 100vw;
@@ -38,12 +39,6 @@
 	font-weight: 300;
 	line-height: 110%;
 	text-transform: uppercase;
-
-	&__intro {
-		display: block;
-		font-size: 20px;
-		line-height: 110%;
-	}
 
 	&__bold {
 		font-weight: 700;

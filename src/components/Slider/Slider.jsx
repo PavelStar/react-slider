@@ -3,8 +3,9 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useRef } from "react";
 import MessageSlide from "../slides/MessageSlide/MessageSlide.jsx";
-import ButtonLearnMore from "./../buttons/ButtonLearnMore/ButtonLearnMore.jsx";
-import Popup from "./../Popup/Popup";
+import OfferSlide from "../slides/OfferSlide/OfferSlide.jsx";
+import MainButton from "../buttons/MainButton/MainButton.jsx";
+
 import "./Slider.scss";
 
 const Slider = () => {
@@ -72,10 +73,10 @@ const Slider = () => {
 					<li className="slider__item">
 						<div className="slider__intro-block intro-block">
 							<h1 className="intro-block__title page-title">
-								<span className="page-title__intro">Привет,</span>
+								<span className="page-title__intro title-intro">Привет,</span>
 								это <span className="page-title__bold">не</span> коммерческое
 								<div className="page-title__last-row">
-									задание <ButtonLearnMore />
+									задание <MainButton buttonName="Что дальше?" />
 								</div>
 							</h1>
 						</div>
@@ -83,20 +84,8 @@ const Slider = () => {
 					<li className="slider__item">
 						<MessageSlide />
 					</li>
-					<li className="slider__item">
-						<div>
-							<h2 className="slider__slide-title">Ключевое сообщение</h2>
-							<b>Brendxy</b>
-						</div>
-						<ul>
-							<li>
-								Ehicula ipsum a arcu cursus vitae. Eu non diam phasellus vestibulum lorem sed risus
-								ultricies
-							</li>
-							<li>A arcu cursus vitae</li>
-						</ul>
-						<ButtonLearnMore />
-						<Popup />
+					<li className="slider__item slider__item--offer">
+						<OfferSlide />
 					</li>
 				</ul>
 			</div>
