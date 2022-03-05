@@ -7,18 +7,23 @@
 	display: grid;
 	justify-content: end;
 	align-items: end;
-	margin-bottom: 50px;
+	margin-bottom: 80px;
+	margin-top: auto;
 
 	&__wrapper {
 		display: grid;
 	}
 
-	&__offer-img {
+	&__img-wrapper {
 		position: absolute;
 		left: 50px;
 		bottom: 0;
 		height: 700px;
 		z-index: 20;
+	}
+
+	&__offer-img {
+		height: 100%;
 	}
 
 	&__title-wrapper {

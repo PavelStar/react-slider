@@ -4,8 +4,7 @@ import { useEffect } from "react";
 import { useRef } from "react";
 import MessageSlide from "../slides/MessageSlide/MessageSlide.jsx";
 import OfferSlide from "../slides/OfferSlide/OfferSlide.jsx";
-import MainButton from "../buttons/MainButton/MainButton.jsx";
-
+import IntroSlide from "../slides/IntroSlide/IntroSlide.jsx";
 import "./Slider.scss";
 
 const Slider = () => {
@@ -17,6 +16,7 @@ const Slider = () => {
 	useEffect(() => {
 		setSlideWidth(sliderWrapperRef.current.clientWidth);
 	}, []);
+	console.log(linePosition);
 
 	let startPosition = null;
 	let endPosition = null;
@@ -70,18 +70,10 @@ const Slider = () => {
 						transitionDuration: "1s",
 					}}
 				>
-					<li className="slider__item">
-						<div className="slider__intro-block intro-block">
-							<h1 className="intro-block__title page-title">
-								<span className="page-title__intro title-intro">Привет,</span>
-								это <span className="page-title__bold">не</span> коммерческое
-								<div className="page-title__last-row">
-									задание <MainButton buttonName="Что дальше?" />
-								</div>
-							</h1>
-						</div>
+					<li className="slider__item slider__item--intro">
+						<IntroSlide />
 					</li>
-					<li className="slider__item">
+					<li className={linePosition === -2048 ? "slider__item" : "slider__item slider__item--message"}>
 						<MessageSlide />
 					</li>
 					<li className="slider__item slider__item--offer">

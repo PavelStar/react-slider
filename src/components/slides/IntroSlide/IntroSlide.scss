@@ -1,0 +1,72 @@
+.intro-slide {
+	// position: relative;
+
+	&::before {
+		position: absolute;
+		content: "";
+		left: -90px;
+		top: 60px;
+		width: 200px;
+		height: 100px;
+		background-image: url("./../../../images/animations-images/blue-line-1.png");
+		background-repeat: no-repeat;
+		background-size: contain;
+	}
+
+	&::after {
+		position: absolute;
+		content: "";
+		right: 290px;
+		top: 60px;
+		width: 60px;
+		height: 60px;
+		background-image: url("./../../../images/animations-images/blue-ball-1.png");
+		background-repeat: no-repeat;
+		background-size: contain;
+
+		animation: move3 5s infinite linear alternate-reverse;
+		@keyframes move3 {
+			0% {
+				transform: translateX(20px);
+			}
+
+			100% {
+				transform: translateX(-40px);
+			}
+		}
+	}
+
+	&__title {
+		position: relative;
+		&::after {
+			position: absolute;
+			content: "";
+			right: 0;
+			top: -10px;
+			width: 560px;
+			height: 200px;
+			background-image: url("./../../../images/animations-images/pink-line-1.png");
+			background-repeat: no-repeat;
+			background-size: contain;
+		}
+
+		&::before {
+			position: absolute;
+			content: "";
+			left: -30px;
+			bottom: -30px;
+			width: 70px;
+			height: 70px;
+			z-index: -1;
+			background-image: url("./../../../images/animations-images/blue-ball-1.png");
+			background-repeat: no-repeat;
+			background-size: contain;
+			animation: move 8s infinite linear alternate-reverse;
+			@keyframes move {
+				to {
+					transform: translate(50px, 50px);
+				}
+			}
+		}
+	}
+}

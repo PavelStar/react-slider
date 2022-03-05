@@ -38,7 +38,7 @@ const Popup = ({ isPopupShown, setIsPopupShown }) => {
 					</button>
 					<div className="popup__title-wrap">
 						<h2 className=" title-intro">
-							<span className="title-intro">Ключевое сообщение</span>
+							<span className="title-intro">Преимущества</span>
 
 							<p className="offer-slide__item-name">
 								Brend<b>xy</b>

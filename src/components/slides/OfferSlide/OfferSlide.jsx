@@ -4,6 +4,7 @@ import OfferImg from "./../../../images/offer-bottle.png";
 import MainButton from "../../buttons/MainButton/MainButton";
 import Popup from "../../Popup/Popup";
 import "./OfferSlide.scss";
+import "./Bubles.scss";
 
 const OfferSlide = () => {
 	const [isPopupShown, setIsPopupShown] = useState(false);
@@ -11,7 +12,17 @@ const OfferSlide = () => {
 	return (
 		<div className="offer-slide">
 			<div className="offer-slide__wrapper">
-				<img className="offer-slide__offer-img" src={OfferImg} alt="item-name" height={300} />
+				<div className="offer-slide__img-wrapper">
+					<img className="offer-slide__offer-img" src={OfferImg} alt="item-name" height={300} />
+					<div className="buble buble--1"></div>
+					<div className="buble buble--2"></div>
+					<div className="buble buble--3"></div>
+					<div className="buble buble--4"></div>
+					<div className="buble buble--5"></div>
+					<div className="buble buble--6"></div>
+					<div className="buble buble--7"></div>
+					<div className="buble buble--8"></div>
+				</div>
 				<h2 className="offer-slide__title-wrapper title-intro">
 					Ключевое сообщение
 					<p className="offer-slide__item-name">
