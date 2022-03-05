@@ -23,10 +23,7 @@ const Popup = ({ isPopupShown, setIsPopupShown }) => {
 
 	return (
 		<div className="popup">
-			<div
-				className="popup__overlay"
-				// onClick={() => setIsPopupShown(!isPopupShown)}
-			>
+			<div className="popup__overlay">
 				<div className="popup__content">
 					<button
 						className="popup__close-button close-button"

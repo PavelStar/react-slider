@@ -6,9 +6,7 @@ import ArrowIcon from "../svg/ArrowIcon";
 import "./SliderControls.scss";
 
 const SliderControls = ({ arrayLength, startIndex, setStartIndex, itemsToShowCount }) => {
-	const [dotsCount, setDotsCount] = useState(Math.ceil(arrayLength / itemsToShowCount));
 	const [dotsListStartValues, setDotsListStartValues] = useState([]);
-	// console.log(dotsCount);
 
 	useEffect(() => {
 		let arr = [];

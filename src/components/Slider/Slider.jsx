@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useRef } from "react";
@@ -7,51 +7,47 @@ import OfferSlide from "../slides/OfferSlide/OfferSlide.jsx";
 import IntroSlide from "../slides/IntroSlide/IntroSlide.jsx";
 import "./Slider.scss";
 
-const Slider = () => {
+const Slider = ({ linePosition, setLinePosition }) => {
 	const sliderWrapperRef = useRef();
 	const sliderListRef = useRef();
 	const [slideWidth, setSlideWidth] = useState();
-	const [linePosition, setLinePosition] = useState(0);
 
 	useEffect(() => {
 		setSlideWidth(sliderWrapperRef.current.clientWidth);
 	}, []);
-	console.log(linePosition);
 
 	let startPosition = null;
 	let endPosition = null;
 	let touchWidth = null;
 	let slidesCount = null;
+	let isMouseMove = false;
 
 	const setTouchStart = (e) => {
-		if (e.type === "mousedown") {
-			startPosition = e.clientX;
-		} else {
-			startPosition = e.touches[0].clientX;
-		}
+		startPosition = e.touches[0].clientX;
 	};
 
-	const setTouchEnd = (e) => {
-		if (e.type === "mouseup") {
-			endPosition = e.clientX;
-			switchSlides();
-		} else {
-			endPosition = e.touches[0].clientX;
-		}
+	const setTouchMove = (e) => {
+		endPosition = e.touches[0].clientX;
+		isMouseMove = true;
 	};
 
-	const switchSlides = () => {
+	const setTouchEnd = () => {
+		if (isMouseMove) switchSlides();
+	};
+
+	const switchSlides = (e) => {
 		slidesCount = sliderListRef.current.childElementCount;
 		touchWidth = startPosition - endPosition;
-
 		if (Math.abs(touchWidth) > 50) {
-			if (touchWidth > 0 && linePosition > -slidesCount * slideWidth + slideWidth) {
+			if (touchWidth > 0 && linePosition !== -(slidesCount - 1) * slideWidth) {
 				setLinePosition(linePosition - slideWidth);
 			}
-			if (touchWidth < 0 && linePosition < 0) {
+			if (touchWidth < 0 && linePosition !== 0) {
 				setLinePosition(linePosition + slideWidth);
 			}
 		}
+
+		isMouseMove = false;
 	};
 
 	return (
@@ -61,17 +57,15 @@ const Slider = () => {
 					className="slider__list"
 					ref={sliderListRef}
 					onTouchStart={(e) => setTouchStart(e)}
-					onTouchMove={(e) => setTouchEnd(e)}
-					onTouchEnd={switchSlides}
-					onMouseUp={(e) => setTouchEnd(e)}
-					onMouseDown={(e) => setTouchStart(e)}
+					onTouchMove={(e) => setTouchMove(e)}
+					onTouchEnd={setTouchEnd}
 					style={{
 						transform: `translateX(${linePosition}px)`,
 						transitionDuration: "1s",
 					}}
 				>
 					<li className="slider__item slider__item--intro">
-						<IntroSlide />
+						<IntroSlide setLinePosition={setLinePosition} />
 					</li>
 					<li className={linePosition === -2048 ? "slider__item" : "slider__item slider__item--message"}>
 						<MessageSlide />

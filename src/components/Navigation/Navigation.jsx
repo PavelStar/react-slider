@@ -2,11 +2,11 @@ import React from "react";
 import HomeButton from "./../buttons/HomeButton/HomeButton";
 import "./Navigation.scss";
 
-const Navigation = () => {
+const Navigation = ({ setLinePosition }) => {
 	return (
 		<nav className="navigation">
 			<span className="navigation__btn-wrap">
-				<HomeButton />
+				<HomeButton setLinePosition={setLinePosition} />
 			</span>
 			<p>Project</p>
 		</nav>
