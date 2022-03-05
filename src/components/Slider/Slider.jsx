@@ -67,7 +67,7 @@ const Slider = ({ linePosition, setLinePosition }) => {
 					<li className="slider__item slider__item--intro">
 						<IntroSlide setLinePosition={setLinePosition} />
 					</li>
-					<li className={linePosition === -2048 ? "slider__item" : "slider__item slider__item--message"}>
+					<li className={linePosition < -2048 ? "slider__item" : "slider__item slider__item--message"}>
 						<MessageSlide />
 					</li>
 					<li className="slider__item slider__item--offer">
